@@ -1,4 +1,4 @@
-# ItextXfaOnKaraf
+# Itext Xfa On Karaf
 This is a reference repository to get ItextXFA Worker running on OSGi (Karaf)
 
 The default v5.5.11 release of iText XFA worker is not properly OSGi compatible, which makes it difficult to get it running in an OSGi container (like Karaf). This repository contains sample code and related instructions to get this working.
