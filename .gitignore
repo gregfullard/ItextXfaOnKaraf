@@ -11,5 +11,8 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# iText key file
+# iText key file and other runtime files that should not be checked in
 templates/itextkey.xml
+templates/rendered.pdf
+templates/renderedFlat.pdf
+

@@ -123,7 +123,7 @@
 						<Private-Package>com.itextpdf.*;org.antlr.*;org.abego.*;org.mozilla.*;org.bouncycastle.*;org.slf4j.*</Private-Package>
 					</instructions>
 				</configuration>
-			</plugin>
+			</plugin> 
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>

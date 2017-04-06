@@ -25,13 +25,17 @@ public class Activator implements BundleActivator {
         System.out.println("Starting the bundle");
         System.out.println("Rendering PDF");
         Renderer rend = new Renderer();
-        String templatePath = "/home/gregf/Temp/iText/BasicXfa.pdf";
-        String renderPayload = "<form1><Name>MyName</Name><Surname>MySurname</Surname></form1>";
-    	String xfaPdfPath = "/home/gregf/Temp/iText/rendered.pdf";
-    	String flatPdfPath = "/home/gregf/Temp/iText/renderedFlat.pdf";
-    	String licenseFilePath = "/home/gregf/Temp/iText/8bp.c3m.8bp";
         
-    	boolean flatten = true;
+        String repoRoot = "/home/gregf/Greg_OfflineData/Dev/Repos/Other/ItextXfaOnKaraf/";
+        
+        String templatePath = repoRoot + "templates/BasicXfa.pdf";
+        String xfaPdfPath = repoRoot + "templates/rendered.pdf";
+    	String flatPdfPath = repoRoot + "templates/renderedFlat.pdf";
+    	String licenseFilePath = repoRoot + "templates/itextkey.xml";
+
+        String renderPayload = "<form1><Name>MyName</Name><Surname>MySurname</Surname></form1>";
+        
+    	boolean flatten = false;
         rend.renderDoc(flatten, templatePath, renderPayload, xfaPdfPath, flatPdfPath, licenseFilePath);    	
     }
 

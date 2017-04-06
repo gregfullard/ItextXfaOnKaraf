@@ -3,7 +3,6 @@ package com.test.itext;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,9 +11,6 @@ import java.net.URISyntaxException;
 import java.nio.file.FileSystemNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
-import org.osgi.framework.Bundle;
-import org.osgi.framework.FrameworkUtil;
 
 import com.itextpdf.license.LicenseKey;
 import com.itextpdf.text.Document;
@@ -164,6 +160,7 @@ public class Renderer {
 		return templateBytes;
 	}
 
+	/*
 	private byte[] readInputStreamToBytes (InputStream is) throws IOException {
 		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 	
@@ -177,7 +174,7 @@ public class Renderer {
 		buffer.flush();
 	
 		return buffer.toByteArray();
-	}
+	}*/
 
 	/*
 	 * Temporary test method to write a byte array to file
@@ -196,12 +193,16 @@ public class Renderer {
         System.out.println("Rendering PDF");
         Renderer rend = new Renderer();
         
-        String templatePath = "/home/gregf/Temp/iText/BasicXfa.pdf";
-        String renderPayload = "<form1><Name>MyName</Name><Surname>MySurname</Surname></form1>";
-    	String xfaPdfPath = "/home/gregf/Temp/iText/rendered.pdf";
-    	String flatPdfPath = "/home/gregf/Temp/iText/renderedFlat.pdf";
-    	String licenseFilePath = "/home/gregf/Temp/iText/8bp.c3m.8bp";
+        String repoRoot = "/home/gregf/Greg_OfflineData/Dev/Repos/Other/ItextXfaOnKaraf/";
         
-        rend.renderDoc(true, templatePath, renderPayload, xfaPdfPath, flatPdfPath, licenseFilePath);
+        String templatePath = repoRoot + "templates/BasicXfa.pdf";
+        String xfaPdfPath = repoRoot + "templates/rendered.pdf";
+    	String flatPdfPath = repoRoot + "templates/renderedFlat.pdf";
+    	String licenseFilePath = repoRoot + "templates/itextkey.xml";
+    	
+        String renderPayload = "<form1><Name>MyName</Name><Surname>MySurname</Surname></form1>";
+
+        boolean flatten = true;
+        rend.renderDoc(flatten, templatePath, renderPayload, xfaPdfPath, flatPdfPath, licenseFilePath);
 	}
 }
